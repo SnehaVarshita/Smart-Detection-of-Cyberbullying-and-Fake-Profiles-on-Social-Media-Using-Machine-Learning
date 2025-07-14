@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Inputs | Cyber Bullying Detection</title>
+		<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+		<link rel="icon" href="/static/image-asset/icons/favicon.ico" type="image/x-icon"/>
+		<!-- Fonts and icons -->
+		<script src="/static/dashboard_assets/js/plugin/webfont/webfont.min.js"></script>
+		 
+		 
+
+ 
+		<script>
+			WebFont.load({
+				google: {"families":["Lato:300,400,700,900"]},
+				custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/static/dashboard_assets/css/fonts.min.css']},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+		<style>
+			/* Container needed to position the button. Adjust the width as needed */
+			.container {
+				position: relative;
+				width: 50%;
+			}
+
+			/* Make the image responsive */
+			.container img {
+				width: 100%;
+				height: auto;
+			}
+
+			/* Style the button and place it in the middle of the container/image */
+			.container .btn {
+				position: absolute;
+				top: 65%;
+				left: 40%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				background-color: #555;
+				color: white;
+				font-size: 10px;
+				padding: 4px 8px;
+				border: none;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+
+			.btn {
+				min-width: 200px;
+			}
+
+			.btn:hover {
+				background-color: black;
+				color: white;
+			}
+			/* Add some basic styling */
+			 
+			.images_row img {
+				height: 125px;
+				border-radius: 10px;
+				box-shadow: 3px 3px 3px;
+				margin: auto;
+				display: block;
+			}
+
+			#dashboard_hr{
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			
+			
+		</style>
+		<!-- CSS Files -->
+		<link rel="stylesheet" href="/static/dashboard_assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/dashboard_assets/css/atlantis.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+		<!-- CSS Just for demo purpose, don't include it in your project -->
+		<link rel="stylesheet" href="/static/dashboard_assets/css/demo.css">
+		<link rel="stylesheet" href="../static/css/common.css">
+	</head>
+<body>
+	<div class="wrapper">
+		{% set sidefocus = 3 %} 
+		<!-- This Sets the Focus of Sidebar, See sidebar.html -->
+
+		<!-- Sidebar -->
+		{% include "sidebar.html" ignore missing %}
+		<!-- End Sidebar -->
+		<div class="page-inner">
+
+			<h1><b> Cyber Bullying Detection </b></h1>
+			<hr>
+			<form action="/cyber_bullying_detection_result" method="post">
+			 
+			 
+				 
+				
+				<div class="row mt-2">
+					<div class="col-md-3">
+					  <textarea rows="8" cols="100" type="text" name="input_text" class="form-control" placeholder="Input Text"  value="" required resize ></textarea>
+					</div> 
+				</div>
+
+				 
+				 
+ 
+ 
+				 
+				<button type="submit" class="btn btn-primary mt-2">Submit</button>
+
+				
+			  </form>
+
+			 
+			
+			
+		</div>
+	</div>
+						 	
+		
+		{% include "footer.html" ignore missing %}
+ 
+</body>
+</html>

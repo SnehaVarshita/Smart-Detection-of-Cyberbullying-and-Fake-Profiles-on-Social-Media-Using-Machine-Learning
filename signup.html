@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/login_assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="/static/image-asset/icons/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Sign Up </title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="/static/login_assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/login_assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
+
+	<style>
+		.btn-primary{
+			background-color: #9c27b0 !important;
+			color: white !important;
+		}
+
+		.btn-success{
+			background-color: #4caf50 !important;
+			color: white !important
+		}
+	</style>
+</head>
+
+<body class="login-page">
+	<nav class="navbar navbar-primary navbar-transparent navbar-absolute mb-5">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header" style="display: flex; align-items: center;justify-content: center;    width: 100%;">
+				<div><img src="/static/image-asset/logo.png" alt="logo" height=80 style="border-radius: 20%; margin-right: 20px;"></div>
+					
+				 <div><h3 style="font-weight: bold;margin-right: 10px;">Fake Profile and Cyber Bullying Detection </h3></div>
+				 
+				 
+				 
+        	</div>
+			
+		</div>
+    </nav>
+
+	<div class="page-header header-filter" style="background-image: url('/static/image-asset/bg.jpg'); background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+					<div class="card card-signup">
+						<form class="form" method="post" action="/">
+							<div class="header header-primary text-center">
+								<h4 class="card-title">SIGN UP</h4>
+								
+							</div>
+<!--							<p class="description text-center">Or Be Classical</p>-->
+							<div class="card-content">
+
+								
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">person</i>
+									</span>
+									<input type="text" name="name" class="form-control" placeholder="User Name" required value="">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">email</i>
+									</span>
+									<input type="text" name="mail" class="form-control" placeholder="User Mail" required value="">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">cake</i>
+									</span>
+									<input type="text" name="age" class="form-control" placeholder="User Age" required value="">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">
+									  <i class="material-icons">wc</i>
+									</span>
+									<select name="gender" class="form-control" required>
+									  <option value="" disabled selected>Select Gender</option>
+									  <option value="Male">Male</option>
+									  <option value="Female">Female</option>
+									</select>
+								  </div>
+
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">lock_outline</i>
+									</span>
+									<input type="password" name="password" placeholder="Password..." class="form-control" value="" required />
+								</div>
+
+								 
+							</div>
+							<div class="footer text-center">
+								<button type="submit" class="btn btn-success btn-simple btn-wd btn-md">Submit</button>
+
+								
+							</div>
+
+							<hr>
+
+							<p class="error" style="display: none; color: red; font-weight: 500; text-align: center;"> </p>
+
+						 
+
+							<div class="text-center">
+								<button class="btn  btn-primary btn-wd btn-md" onclick="window.location.href='/login'">Login ?</button> 
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		 
+
+	</div>
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="/static/login_assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/static/login_assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/static/login_assets/js/material.min.js"></script>
+ 
+
+	 
+
+	 
+	<!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/   -->
+	<script src="/static/login_assets/js/bootstrap-tagsinput.js"></script>
+
+	<!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
+	<script src="/static/login_assets/js/material-kit.js?v=1.2.1" type="text/javascript"></script>
+
+	<script>
+
+		document.querySelector('form').addEventListener('submit', async function (e) {
+		e.preventDefault();
+		
+		const formData = {
+			name: document.querySelector('input[name="name"]').value,
+			email: document.querySelector('input[name="mail"]').value,
+			age: document.querySelector('input[name="age"]').value,
+			gender: document.querySelector('select[name="gender"]').value,
+			password: document.querySelector('input[name="password"]').value
+		};
+
+		console.log(`FormData : ${formData}`)
+
+		try {
+			const response = await fetch('/signup', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(formData)
+			});
+
+			const result = await response.json();
+			
+			if (response.ok) {
+				alert(result.message);
+				window.location.href = '/login';
+			} else {
+				document.querySelector('.error').textContent = result.error;
+				document.querySelector('.error').style.display = 'block';
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			document.querySelector('.error').textContent = 'An unexpected error occurred.';
+			document.querySelector('.error').style.display = 'block';
+		}
+		});
+	</script>
+</html>

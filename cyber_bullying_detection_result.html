@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Result | Cyber Bullying Detection</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="/static/image-asset/icons/favicon.ico" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="/static/dashboard_assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/static/dashboard_assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="/static/dashboard_assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/dashboard_assets/css/atlantis.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link rel="stylesheet" href="/static/dashboard_assets/css/demo.css">
+	<link rel="stylesheet" href="../static/css/common.css">
+
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		  }
+		  h3.result_heading {
+			font-size: 22px;
+			font-weight: bold;
+			color: #923748;
+		}
+		h4.result {
+			font-size: 37px;
+			font-weight: bold;
+			color: #424fd4;
+		}
+		h5.result {
+			font-size: 20px;
+			color: darkblue;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		{% set sidefocus = side_focus %}
+
+		<!-- Sidebar -->
+		{% include "sidebar.html" ignore missing %}
+		<!-- End Sidebar -->
+		<div class="page-inner">
+			 
+
+				 
+					 
+							 
+
+				<h3 class="result_heading">Analysis Result:</h3>  
+				<hr>
+
+				<h4> Input : {{input_text}}</h4>
+
+				<hr>
+
+				<h5 class="result"> {% if "not" not in prediction_result %}
+					<img src="/static/image-asset/cyberbullying.gif" alt="Cyber Bullying" style="  height: 27px;">
+				{% endif %}  {{prediction_result}} </h5>
+				
+				<!--  if there is "not" contained in result, don't shpw any image, otherwise show cyberbullying gif -->
+
+				<!-- if not not in prediction result -->
+
+				
+
+				 
+									 
+ 
+		 
+		 
+			
+		</div>
+	</div>
+						
+						
+						
+		
+		{% include "footer.html" ignore missing %}
+</body>
+</html>
+

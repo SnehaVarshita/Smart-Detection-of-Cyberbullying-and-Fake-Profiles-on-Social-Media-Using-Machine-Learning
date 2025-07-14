@@ -1,0 +1,146 @@
+<style>
+	.ani-container {
+		display: flex;
+		width: fit-content;
+	}
+	#flexbox {
+		display: flex;
+		position: relative;
+		left:1000px;
+		transition: all .4s;
+		z-index: 3;
+	}
+
+	.logo-header[data-background-color=blue] {
+		background: #4b4321 !important;
+	}
+	.navbar-header[data-background-color=blue2] {
+		background: #4b4321 !important;
+	}
+	#search-nav{
+		max-width: unset;
+	}
+
+
+	
+</style>
+
+<div class="main-header">
+    <!-- Logo Header -->
+    <div class="logo-header" data-background-color="blue">
+        
+        <a href="/" class="logo" style="color: white">
+            <img src="/static/image-asset/logo.png" height=50 alt="navbar brand" class="navbar-brand"> 
+        
+        </a>
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="icon-menu"></i>
+            </span>
+        </button>
+        <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+        <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+                <i class="icon-menu"></i>
+            </button>
+        </div>
+    </div>
+    <!-- End Logo Header -->
+
+    <!-- Navbar Header -->
+    <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+        
+        <div class="container-fluid" style="text-align:center; ">
+            <div class="collapse" id="search-nav" style="text-align:center; ">
+                <span style="color: white; font: size 32px !important;; font-weight:800;"><h1 style="color: white; font-weight:800;">Fake Profile and Cyber Bullying Detection</h1></span> 
+            </div>
+        </div>
+
+
+
+
+    </nav>
+    <!-- End Navbar -->
+</div>
+        
+        <!-- Sidebar -->
+		<div class="sidebar sidebar-style-2">			
+			<div class="sidebar-wrapper scrollbar scrollbar-inner">
+				<div class="sidebar-content">
+					
+					<ul class="nav nav-primary">
+                        <li class="nav-item 
+                        {% if sidefocus == 1 %}
+                            active
+                        {% endif %}
+                                    ">
+							<a href="/" aria-expanded="false">
+								<i class="fas fa-bank"></i>
+								<p>Dashboard</p>
+							</a>
+						</li>
+						<li class="nav-item
+                        {% if sidefocus == 2 %}
+                            active
+                        {% endif %}
+                        
+                        ">
+							<a href="/fake_profile_detection">
+								<i class="fas fa-users"></i>
+								<p>Fake Profile Detection</p>
+							</a>
+						</li>
+
+						<li class="nav-item
+                        {% if sidefocus == 3 %}
+                            active
+                        {% endif %}
+                        
+                        ">
+							<a href="/cyber_bullying_detection">
+								<i class="fas fa-users"></i>
+								<p>Cyber Bullying Detection</p>
+							</a>
+						</li>
+
+						 
+ 
+						 
+						
+						 
+				 
+ 
+
+						 
+
+						<li class="nav-item mt-5">
+							<a href="/logout/"  class="btn btn-danger btn-block text-white">  <i class="fa fa-sign-out" style="color:white;"></i>  <p style="color:white;">Logout</p></a> 
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
+
+        <div class="main-panel">
+			<div class="content">
+				<div class="panel-header bg-primary-gradient">
+					<div class="page-inner">
+							
+							<h4 style=" color:white; font-size: 30px;">Hello, {{user[1]}} ! </h4>
+					</div>
+				</div>
+
+<script>
+	const allMovers = document.getElementById("flexbox")
+	const triggerAni = () => {
+		const value = allMovers.getAttribute("visibility")
+		if (value === 'show') {
+			allMovers.style = "left:1000px;opacity: 0;"
+			allMovers.setAttribute('visibility', 'hidden')
+		}else {
+			allMovers.style = "left:0px; opacity:1;"
+			allMovers.setAttribute('visibility', 'show')
+		}
+	}
+</script>

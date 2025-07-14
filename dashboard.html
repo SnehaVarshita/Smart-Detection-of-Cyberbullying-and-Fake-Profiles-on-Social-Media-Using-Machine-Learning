@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Dashboard</title>
+		<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+		<link rel="icon" href="/static/image-asset/icons/favicon.ico" type="image/x-icon"/>
+		<!-- Fonts and icons -->
+		<script src="/static/dashboard_assets/js/plugin/webfont/webfont.min.js"></script>
+		 
+		<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+		<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+		<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+		<link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+		<link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+		 
+
+ 
+		<script>
+			WebFont.load({
+				google: {"families":["Lato:300,400,700,900"]},
+				custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/static/dashboard_assets/css/fonts.min.css']},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+		<style>
+			/* Container needed to position the button. Adjust the width as needed */
+			.container {
+				position: relative;
+				width: 50%;
+			}
+
+			/* Make the image responsive */
+			.container img {
+				width: 100%;
+				height: auto;
+			}
+
+			/* Style the button and place it in the middle of the container/image */
+			.container .btn {
+				position: absolute;
+				top: 65%;
+				left: 40%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				background-color: #555;
+				color: white;
+				font-size: 10px;
+				padding: 4px 8px;
+				border: none;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+
+			.btn {
+				min-width: 200px;
+			}
+
+			.btn:hover {
+				background-color: black;
+				color: white;
+			}
+			/* Add some basic styling */
+			#pie_container {
+				width: 500px;
+				height: 400px;
+				margin: 0 auto;
+			}
+			#graph_container {
+				width: 500px;
+				height: 400px;
+				margin: 0 auto;
+			}
+
+			#pie_container, #graph_container{
+				border: 2px solid #f3f0f0;
+				border-radius: 19px;
+				overflow: hidden;
+				box-shadow: 2px 2px 8px lightgray;
+			}
+			.anychart-credits-text, .anychart-credits-logo{
+				display: none
+			}
+
+			.images_row img {
+				height: 300px;
+				border-radius: 10px;
+				box-shadow: 2px 2px 8px lightgray;
+				margin: auto;
+				display: block;
+				margin-top: 30px;
+			}
+
+			#dashboard_hr{
+				margin-top: 30px;
+				margin-bottom: 30px;
+				height: 2px;
+				background: #d9dddd;
+			}
+
+			.graph_heading{
+				border: 2px solid gray;
+				width: fit-content;
+				margin: auto;
+				padding: 4px;
+				border-radius: 10px;
+				background: burlywood;
+				color: black;
+				box-sizing: border-box;
+				box-shadow: 3px 3px 3px gray;
+				text-align: center;
+			}
+			
+		</style>
+		<!-- CSS Files -->
+		<link rel="stylesheet" href="/static/dashboard_assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/dashboard_assets/css/atlantis.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+		<!-- CSS Just for demo purpose, don't include it in your project -->
+		<link rel="stylesheet" href="/static/dashboard_assets/css/demo.css">
+		<link rel="stylesheet" href="../static/css/common.css">
+	</head>
+<body>
+	<div class="wrapper">
+		{% set sidefocus = 1 %} 
+		<!-- This Sets the Focus of Sidebar, See sidebar.html -->
+
+		<!-- Sidebar -->
+		{% include "sidebar.html" ignore missing %}
+		<!-- End Sidebar -->
+		<div class="page-inner">
+			<div class="row ">
+				<div class=" ">
+
+					<h2 style="color: rgb(40, 145, 59); font-weight: bold; font-size: 25px;"> Welcome to the dashboard ! </h2>
+			 
+					 
+				</div>
+				 
+			</div>
+
+			<hr id="dashboard_hr">
+
+			<h2 class="graph_heading">About Fake Profile </h2>
+
+			<br>
+			<div class="images_row row">
+
+				 <div class="col-md-11 m-auto" style="font-size: 17px;">
+
+					A Fake Profile is an online account created with false or misleading information, often used to impersonate someone, scam users, spread misinformation, or engage in malicious activities. These profiles typically display suspicious behavior such as: <br> <br> 
+
+ 
+
+					<ul>
+						<li>Using stolen or AI-generated profile pictures</li>
+						<li>Having incomplete or copied bios</li>
+						<li>Showing unusual follower/following patterns</li>
+						<li>Posting little or no genuine content</li>
+						<li>Sharing external links leading to scams or phishing sites</li>
+					</ul>
+
+					<br> 
+
+					Detecting fake profiles early helps protect the online community from fraud, cyberbullying, identity theft, and other security threats.
+
+					<br> <br> 
+					Our system analyzes various factors — including profile pictures, username patterns, external links, and bio descriptions — to accurately detect potential fake profiles.
+
+				 </div>
+
+				
+				<div class="col-md-6">
+					<img src="../static/image-asset/fake_profile.png">
+				</div>
+				<div class="col-md-6">
+					<img src="../static/image-asset/real_profile.png">
+				</div>	
+			 
+			</div>
+
+			<hr id="dashboard_hr">
+			<h2 class="graph_heading"> Cyber Bullying </h2>
+
+			<br>
+			<div class="images_row row">
+
+				<div class="col-md-11 m-auto" style="font-size: 17px;">
+
+					Cyberbullying is the act of using digital platforms — such as social media, messaging apps, forums, or gaming communities — to harass, threaten, embarrass, or target another person. It can take many harmful forms, including: 
+					<br><br>
+				
+					<ul>
+						<li>Sending hurtful or threatening messages</li>
+						<li>Spreading false information or rumors</li>
+						<li>Posting embarrassing photos or videos without consent</li>
+						<li>Excluding individuals from online groups or conversations</li>
+						<li>Impersonating someone to damage their reputation</li>
+					</ul>
+				
+					<br>
+				
+					Cyberbullying can cause serious emotional, psychological, and social harm to individuals.
+				
+					<br><br>
+				
+					Our system monitors patterns in text, profiles, and interactions to identify and prevent cyberbullying, helping create a safer and more supportive online environment for everyone.
+				
+				</div>
+				
+				<div class="col-md-6">
+					<img src="../static/image-asset/Cyberbullying.png">
+				</div>
+				 
+			</div>
+
+			 
+
+			<hr id="dashboard_hr">
+			 
+ 
+			 
+
+			 
+			
+			
+			
+		</div>
+	</div>
+						 	
+		
+		{% include "footer.html" ignore missing %}
+
+		<!-- <script>
+
+		 
+
+			console.log(data_from_flask)
+
+			let high_value_customer = Number(data_from_flask["High Value customer"]);
+			let normal_customer = Number(data_from_flask["Normal customer"]);
+			let top_value_customer = Number(data_from_flask["Top value customer"]);
+			let average_customer = Number(data_from_flask["Average customer"]);
+
+			// Define data for the pie chart
+			var pie_data = [
+				{x: "High Value", value: high_value_customer,  fill: "#629917", },
+				{x: "Normal", value: normal_customer,  fill: "#5c6983", },
+				{x: "Top Value", value: top_value_customer,  fill: "#ae7fff", },
+				{x: "Average", value: average_customer,  fill: "black", }
+			];
+	
+			// Create a pie chart
+			var pie_chart = anychart.pie(pie_data);
+
+			pie_chart.radius("40%") 
+
+			pie_chart.animation(true);
+			pie_chart.fill("aquastyle");
+	
+			// Set chart title
+			pie_chart.title("Customer Classification");
+	
+			// Add a legend
+			pie_chart.legend().position("bottom");
+	
+			// Display the pie_chart in the container
+			pie_chart.container("pie_container");
+			pie_chart.draw();
+		</script>
+ 
+		<script>
+			anychart.onDocumentReady(function () { 
+
+				var data = [
+					{x: "High Value", value: high_value_customer,  fill: "#629917", },
+					{x: "Normal", value: normal_customer,  fill: "#5c6983", },
+					{x: "Top Value", value: top_value_customer,  fill: "#ae7fff", },
+					{x: "Average", value: average_customer,  fill: "black", }
+				]
+
+				// create a chart
+				var chart = anychart.column();
+
+				// create a column series and set the data
+				var series = chart.column(data);
+
+				chart.animation(true);
+
+				// set the chart title
+				chart.title("Customer Classification");
+				chart.column().width("10%");
+
+				// set the titles of the axes
+				chart.xAxis().title("Category");
+				chart.yAxis().title("Number");
+
+				// set the container id
+				chart.container("graph_container");
+
+				// initiate drawing the chart
+				chart.draw();
+			});
+		</script> -->
+</body>
+</html>
