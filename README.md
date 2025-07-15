@@ -10,4 +10,5 @@ authenticity. The system uses algorithms like Decision Tree, Random Forest, and 
 Regression as classification algorithms. User interface frontend was designed using HTML, CSS
 and JavaScript to be responsive, followed database management and user authentication with
 SQLite. The final system showcases how machine learning can be used to detect harmful content
-and suspicious profiles, offering a proof of concept for improving online awareness and safety
+and suspicious profiles, offering a proof of concept for improving online awareness and safety.
+
